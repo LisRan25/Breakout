@@ -12,6 +12,17 @@ int main()
 
     ImageManager images;
     images.loadTexture("Images/teehee.jpg");
+    images.loadTexture("Images/glup.png");
+    images.loadTexture("Images/Hi.png");
+    images.loadTexture("Images/ImHere.png");
+    images.loadTexture("Images/Iphone.png");
+    images.loadTexture("Images/Jump.png");
+    images.loadTexture("Images/Toofpick.png");
+    images.loadTexture("Images/Trent.png");
+    images.loadTexture("Images/VideoGamesCalling.png");
+    images.loadTexture("Images/WhitePeople.png");
+    images.loadTexture("Images/Whoops.png");
+
     sf::Sprite sprite(images.getRandomTexture());
 
     sf::Clock clock;
