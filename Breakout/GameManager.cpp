@@ -29,6 +29,12 @@ void GameManager::initialize()
     _imageManager.loadTexture("Images/WhitePeople.png");
     _imageManager.loadTexture("Images/Whoops.png");
 
+    if (!hitBuffer.loadFromFile("Audio/StupidThud.mp3"))
+    {
+        std::cerr << "Failed to load StupidThud.mp3\n";
+    }
+    hitSound.setBuffer(hitBuffer);
+
     _paddle = new Paddle(_window);
     _brickManager = new BrickManager(_window, this);
     _messagingSystem = new MessagingSystem(_window);
@@ -135,6 +141,7 @@ void GameManager::triggerFlash()
     }
 
     _flash.showImage(_imageManager.getRandomTexture(), { 800.f, 600.f }, { _window->getSize().x / 2.f, _window->getSize().y / 2.f });
+    hitSound.play();
 }
 
 Paddle* GameManager::getPaddle() const { return _paddle; }
