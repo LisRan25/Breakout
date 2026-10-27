@@ -8,7 +8,7 @@ class ImageManager
 {
 private:
 	std::deque<sf::Texture> displayImages;
-
+	
 	mutable std::size_t lastIndex = std::numeric_limits<std::size_t>::max();
 public:
 
