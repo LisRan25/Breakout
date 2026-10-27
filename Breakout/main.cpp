@@ -1,6 +1,7 @@
 #include <SFML/Graphics.hpp>
 #include "GameManager.h"
 #include <iostream>
+#include "ImageManager.h"
 
 int main()
 {
@@ -8,6 +9,10 @@ int main()
     sf::RenderWindow window(sf::VideoMode(1000, 800), "Breakout");
     GameManager gameManager(&window);
     gameManager.initialize();
+
+    ImageManager images;
+    images.loadTexture("Images/teehee.jpg");
+    sf::Sprite sprite(images.getRandomTexture());
 
     sf::Clock clock;
     float deltaTime;
@@ -27,6 +32,7 @@ int main()
 
         window.clear();
         gameManager.render();
+        window.draw(sprite);
         window.display();
     }
 
